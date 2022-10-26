@@ -1,0 +1,28 @@
+{
+  "name": "spaceshiprun",
+  "version": "1.0.0",
+  "description": "Integrated Graphics project",
+  "main": "game.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Kanton99/SpaceshipRun.git"
+  },
+  "keywords": [
+    "three.js",
+    "javascript",
+    "videogame"
+  ],
+  "author": "Kanton99",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Kanton99/SpaceshipRun/issues"
+  },
+  "homepage": "https://github.com/Kanton99/SpaceshipRun#readme",
+  "dependencies": {
+    "html-webpack-plugin": "^5.5.0",
+    "three": "^0.141.0"
+  }
+}

@@ -1,0 +1,11 @@
+Model Information:
+* title:	Meteorite
+* source:	https://sketchfab.com/3d-models/meteorite-34c7aefc0c3a4258bfafd5b869a80c80
+* author:	Meteorite (https://sketchfab.com/Meteorite)
+
+Model License:
+* license type:	CC-BY-NC-SA-4.0 (http://creativecommons.org/licenses/by-nc-sa/4.0/)
+* requirements:	Author must be credited. No commercial use. Modified versions must have the same license.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Meteorite" (https://sketchfab.com/3d-models/meteorite-34c7aefc0c3a4258bfafd5b869a80c80) by Meteorite (https://sketchfab.com/Meteorite) licensed under CC-BY-NC-SA-4.0 (http://creativecommons.org/licenses/by-nc-sa/4.0/)
