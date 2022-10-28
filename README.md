@@ -4,4 +4,5 @@ Repository for the final project of the interactive graphic course held by March
 
 Project developed by Anton Volkov and Simone De Angelis
 
-Page link: https://sapienzainteractivegraphicscourse.github.io/final-project-spaceship-run/src/game.html
+![alt text](https://github.com/Ilsommo97/SpaceshipRun/blob/master/resources/html_imgs/spaceship_run.png "Logo Title Text 1")
+
