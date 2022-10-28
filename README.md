@@ -9,7 +9,7 @@ Project developed by Anton Volkov and Simone De Angelis
 
 # The game
 
-The game is about controlling a Space ship dragging your mouse around and avoiding meteorites coming in front of you. You must also collect checkpoint by passing inside the rings placed in the map. A shooting system and cool dark hole will be the next features added!
+The game is about controlling a Space ship dragging your mouse around the screen while avoiding meteorites coming in front of you. You must also collect checkpoint by passing inside the rings placed in the map. A shooting system and cool dark holes will be the next features to add!
 
 ## About the code
 
