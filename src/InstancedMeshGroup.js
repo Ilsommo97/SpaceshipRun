@@ -71,7 +71,7 @@ class InstancedMeshGroup extends THREE.Group{
 
     !** We need to fix the respawn option when we want to move an object wit negative velocity -> e.g left direction for x  !**
     */
-    moveAlongAxis(axis= 'z', velocity= .1, respawn_position, limit_position, parent=this)
+    moveAlongAxis(axis= 'z', velocity= .1, respawn_target, respawn_distances, parent=this)
     {
         var mesh_matrix = new THREE.Matrix4()
         var pos =  new THREE.Vector3()
@@ -88,29 +88,39 @@ class InstancedMeshGroup extends THREE.Group{
                 if (axis =='x') pos.x += velocity
                 if (axis =='y') pos.y += velocity
                 if (axis =='z') pos.z += velocity
-                if (typeof respawn_position =='number')
+                if (typeof respawn_target =='object')
                 {
                     if (axis =='x')
                     {
-                        if (pos.x >= limit_position)
+                        if (pos.x >= respawn_target.x + respawn_distances/10)
                         {
-                            pos.x = respawn_position
+                            let array_pos = sampleCubePosition(this.CubeSide, [respawn_target.x - respawn_distances, respawn_target.y, respawn_target.z])
+                            let new_pos =  new THREE.Vector3(array_pos[0], array_pos[1], array_pos[2])
+                            pos.x = new_pos.x
+                            pos.y = new_pos.y
+                            pos.z = new_pos.z
                         }
                     }
                     if (axis =='y')
                     {
-                        if (pos.y >= limit_position)
+                       if (pos.y >= respawn_target.y + respawn_distances/10)
                         {
-                            
-                            pos.y = respawn_position
+                            let array_pos = sampleCubePosition(this.CubeSide, [respawn_target.x, respawn_target.y - respawn_distances , respawn_target.z])
+                            let new_pos =  new THREE.Vector3(array_pos[0], array_pos[1], array_pos[2])
+                            pos.x = new_pos.x
+                            pos.y = new_pos.y
+                            pos.z = new_pos.z
                         }
                     }
                     if (axis =='z')
                     {
-                        if (pos.z >= limit_position)
+                       if (pos.z >= respawn_target.z + respawn_distances/10)
                         {
-                            
-                            pos.z = respawn_position
+                            let array_pos = sampleCubePosition(this.CubeSide, [respawn_target.x , respawn_target.y, respawn_target.z - respawn_distances])
+                            let new_pos =  new THREE.Vector3(array_pos[0], array_pos[1], array_pos[2])
+                            pos.x = new_pos.x
+                            pos.y = new_pos.y
+                            pos.z = new_pos.z
                         }
                     }
                 }

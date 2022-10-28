@@ -47,7 +47,7 @@ class Game{
         this.ship.vectorThrust(this.oldDir);
         this.ship.getWorldDirection(this.oldDir);
         this.renderer.render(this.scene,this.camera);
-        this.meteorites.moveAlongAxis('z', this.scene.userData.meteorites_velocity, this.ship.position.z -500, this.ship.position.z +100)
+        this.meteorites.moveAlongAxis('z', this.scene.userData.meteorites_velocity, this.ship.position, 500)
         this.meteorites.rotateOnAxis('z', .01)
         
         // Collision detection stuff
