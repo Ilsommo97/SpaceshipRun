@@ -21,6 +21,14 @@ class GameMaster extends THREE.Object3D{
         else element.style.display = display
     }
 
+    changeBackground(id, path)
+    {
+        var declaration = document.styleSheets[0].cssRules[0].style;
+        
+        declaration.setProperty('background',  
+        "url(\""+String(path)) 
+    }
+
     gameScreen(difficulty){
         this.toggleScreen('deathScreen', false)
         this.toggleScreen('initialScreen', false)
@@ -37,6 +45,7 @@ class GameMaster extends THREE.Object3D{
         this.toggleScreen('canvas', false)
         this.toggleScreen('deathScreen', true)
         this.toggleScreen('checkpointCount', false)
+        this.changeBackground('deathScreen','../resources/html_imgs/SR_game-over.png')
         clearInterval(this.game.animate)
     }
 
@@ -49,6 +58,7 @@ class GameMaster extends THREE.Object3D{
         this.toggleScreen('deathScreen', false)
         this.toggleScreen('winScreen', true)
         this.toggleScreen('checkpointCount', false)
+        this.changeBackground('winScreen', '../resources/html_imgs/SR_win.png')
         clearInterval(this.game.animate)
     }
 

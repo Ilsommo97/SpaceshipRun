@@ -43,14 +43,14 @@ class Game{
             this.camera.aspect = canvas.clientWidth / canvas.clientHeight;
             this.camera.updateProjectionMatrix();
         }
+        this.ship.rotation.z +=.0001
         this.ship.vectorThrust(this.oldDir);
-        this.ship.getWorldDirection(this.oldDir); // This vector is normalized and should represent the approach direction of the obj
+        this.ship.getWorldDirection(this.oldDir);
         this.renderer.render(this.scene,this.camera);
-        this.meteorites.moveAlongAxis('z', this.scene.userData.meteorites_velocity, this.ship.position, 100)
+        this.meteorites.moveAlongAxis('z', this.scene.userData.meteorites_velocity, this.ship.position.z -500, this.ship.position.z +100)
         this.meteorites.rotateOnAxis('z', .01)
         
         // Collision detection stuff
-        //console.log(this.oldDir)
         this.ship.updateBoundingBox(this.ship.matrixWorld)
         this.meteorites.intersectObject(this.gameMaster, this.ship.helperBox.box)
         for (let mesh of this.checkpoints.children)

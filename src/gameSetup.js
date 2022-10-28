@@ -7,7 +7,6 @@ async function sceneSetup(scene,camera, domElement, gameMaster, difficulty){
 
     var ship = new Ship(domElement,camera);
     ship.position.y=2.5
-    ship.children[1].setRotationFromAxisAngle(new THREE.Vector3(0,0,1),0) //Needed to adjust the model
     let helper = ship.createBoundingBox()
     scene.userData.meteorites_number;
     scene.userData.meteorites_velocity;
@@ -16,8 +15,8 @@ async function sceneSetup(scene,camera, domElement, gameMaster, difficulty){
      // METEORITES STUFF
     if (difficulty=='easy')
     {
-        scene.userData.meteorites_number = 30
-        scene.userData.meteorites_velocity = .8
+        scene.userData.meteorites_number = 200
+        scene.userData.meteorites_velocity = .4
     }
     if (difficulty=='medium')
     {
@@ -32,7 +31,6 @@ async function sceneSetup(scene,camera, domElement, gameMaster, difficulty){
 
     var meteorites = new InstancedMeshGroup('meteorites')
     var promise = await meteorites.load3DModel('../resources/meshes/meteorites/scene.gltf')
-    // Maybe we can use this promise to display a nice loading page
     meteorites.loadMeshAsCube(scene.userData.meteorites_number, promise, [0,0,-300], 400, 20)
     meteorites.createBoundingBox()
     /*  for (let box of meteorites.BBoxArray)

@@ -7,7 +7,9 @@ body {
     align-items:center;
     background-color:#212324;
     font-family: Arial;
+    background: url('../resources/html_imgs/spaceship_run.png') no-repeat center center fixed; 
 }
+
 
 .btn-group button {
    /*background-color: #04AA6D; /* Green background */

@@ -38,6 +38,20 @@ class LevelGenerator{
             checkpoint.mesh = new THREE.Mesh(geometry,material);
             checkpoints.add(checkpoint);
             checkpoint.position.set(pos.x,pos.y,pos.z);
+            //Energies definition
+            /* let energy = new MeshObject()
+            const geometry1 = new THREE.OctahedronGeometry(100)
+            const material1 = new THREE.MeshStandardMaterial()
+            material1.opacity=1.0
+            energy.mesh = new THREE.Mesh(geometry1, material1)
+            energy.position.set(pos.x,pos.y,pos.z);
+            const pointLight = new THREE.PointLight(0xffffff, 1)
+            pointLight.position.set(pos.x,pos.y,pos.z) 
+            this.level.add(pointLight)
+            this.level.add(energy)
+            */
+
+
             let bbox = checkpoint.createBoundingBox(5,5,5)
             
 

@@ -70,9 +70,6 @@ class InstancedMeshGroup extends THREE.Group{
     Somehow it is causing some problems with the coordinates of each meteorite. We need to solve this issue
 
     !** We need to fix the respawn option when we want to move an object wit negative velocity -> e.g left direction for x  !**
-
-    Attempting to respawn the meteorites wrt to all the 3 components of the ship position. With this change, one is supposed 
-    to pass Vector 3 of three js  as respawn position parameter.
     */
     moveAlongAxis(axis= 'z', velocity= .1, respawn_position, limit_position, parent=this)
     {
@@ -91,44 +88,29 @@ class InstancedMeshGroup extends THREE.Group{
                 if (axis =='x') pos.x += velocity
                 if (axis =='y') pos.y += velocity
                 if (axis =='z') pos.z += velocity
-                if (typeof(respawn_position)== 'object') 
-
-                // Let's assume that we pass the ship position here as respawn position:
-                // We would like the meteorites to respawn where the ship is, but shifted wrt to the axis passed as input.
-                // Each time we exceed the limit position, we can use sampleCubePosition, passing as 
-                // its second parameter the ship position, but shifted of 500 units wrt to the axis passed as input.
+                if (typeof respawn_position =='number')
                 {
                     if (axis =='x')
                     {
-                        if (pos.x >= respawn_position.x + limit_position) //Remember here that the respawn pos is ship pos
+                        if (pos.x >= limit_position)
                         {
-                            let new_pos = sampleCubePosition(parent.CubeSide, [respawn_position.x, respawn_position.y,
-                            respawn_position.z])
-                            pos.x = new_pos[0] - 500
-                            pos.y = new_pos[1]
-                            pos.z = new_pos[2]
+                            pos.x = respawn_position
                         }
                     }
                     if (axis =='y')
                     {
-                        if (pos.y >= respawn_position.y + limit_position) //Remember here that the respawn pos is ship pos
+                        if (pos.y >= limit_position)
                         {
-                            let new_pos = sampleCubePosition(parent.CubeSide, [respawn_position.x, respawn_position.y,
-                            respawn_position.z])
-                            pos.x = new_pos[0] 
-                            pos.y = new_pos[1] - 500
-                            pos.z = new_pos[2]
+                            
+                            pos.y = respawn_position
                         }
                     }
                     if (axis =='z')
                     {
-                        if (pos.z >= respawn_position.z + limit_position) //Remember here that the respawn pos is ship pos
+                        if (pos.z >= limit_position)
                         {
-                            let new_pos = sampleCubePosition(parent.CubeSide, [respawn_position.x, respawn_position.y,
-                            respawn_position.z])
-                            pos.x = new_pos[0]
-                            pos.y = new_pos[1]
-                            pos.z = new_pos[2] - 500
+                            
+                            pos.z = respawn_position
                         }
                     }
                 }
@@ -183,8 +165,7 @@ class InstancedMeshGroup extends THREE.Group{
     }
 
     /*
-        This method works only for 3D models that have just one mesh i.e this.children is composed of just one element.
-        meteorites are composed of just one,
+        This method works only for 3D models that have jsut one mesh i.e this.children is composed of just one element. meteorites are composed of just one,
         more complex models may be composed of several ones (matilda is composed of 103 meshes)
     */
     createBoundingBox(parent=this)
